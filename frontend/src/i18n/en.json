@@ -1,0 +1,21 @@
+{
+  "title": "Simplify Your KRA Returns",
+  "description": "Taxika helps Kenyan taxpayers file returns easily — upload P9, compute PAYE, and generate KRA ZIP instantly.",
+  "login": "Login",
+  "register": "Register",
+  "getStarted": "Get Started",
+  "createAccount": "Create Account",
+  "featuresTitle": "Why Use Taxika?",
+  "feature1_title": "Upload Your P9",
+  "feature1_desc": "Just drag and drop your P9 form in seconds.",
+  "feature2_title": "Auto PAYE Calculation",
+  "feature2_desc": "We compute your PAYE based on official KRA tax bands.",
+  "feature3_title": "Secure & Private",
+  "feature3_desc": "Your data is encrypted and stored securely.",
+  "feature4_title": "Mobile Ready",
+  "feature4_desc": "Access your dashboard on any device.",
+  "feature5_title": "Kenyan Built 🇰🇪",
+  "feature5_desc": "Made for Kenyans, by Kenyans — supports Kiswahili.",
+  "feature6_title": "Instant ZIP File",
+  "feature6_desc": "Generate the final KRA ZIP file with a click."
+}

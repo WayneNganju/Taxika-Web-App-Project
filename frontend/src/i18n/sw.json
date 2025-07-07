@@ -1,0 +1,21 @@
+{
+  "title": "Rahisisha Kujaza Faili ya Ushuru",
+  "description": "Taxika hukusaidia kujaza faili za KRA kwa urahisi — pakia fomu ya P9, hesabu PAYE, na tengeneza faili la ZIP la KRA mara moja.",
+  "login": "Ingia",
+  "register": "Jisajili",
+  "getStarted": "Anza Sasa",
+  "createAccount": "Fungua Akaunti",
+  "featuresTitle": "Kwa Nini Utumie Taxika?",
+  "feature1_title": "Pakia Fomu ya P9",
+  "feature1_desc": "Buruta na udondoshe fomu yako ya P9 kwa haraka.",
+  "feature2_title": "Hesabu PAYE Moja kwa Moja",
+  "feature2_desc": "Tunafanya mahesabu ya PAYE kulingana na viwango rasmi vya KRA.",
+  "feature3_title": "Salama na Faragha",
+  "feature3_desc": "Taarifa zako zinalindwa kwa usalama wa kiwango cha benki.",
+  "feature4_title": "Tayari kwa Simu",
+  "feature4_desc": "Tumia dashibodi yako kwa kifaa chochote, popote ulipo.",
+  "feature5_title": "Imeundwa kwa Wakenya",
+  "feature5_desc": "Imeundwa kwa ajili ya sheria za ushuru za Kenya. Inatii KRA.",
+  "feature6_title": "Pakua Faili ya ZIP",
+  "feature6_desc": "Tengeneza faili la ZIP kwa bonyeza moja tu."
+}
