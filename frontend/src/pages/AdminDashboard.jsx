@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { logout } from "../utils/auth"; // 🔐 custom logout utility
+import AdminUserForm from "../components/AdminUserForm";
 
 export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
@@ -11,7 +12,6 @@ export default function AdminDashboard() {
     admins: 0,
   });
 
-  // Fetch users on load
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -39,7 +39,6 @@ export default function AdminDashboard() {
     }
   };
 
-  // Handle Delete
   const handleDelete = async (userId) => {
     const confirmed = window.confirm("⚠️ Are you sure you want to delete this user?");
     if (!confirmed) return;
@@ -51,7 +50,6 @@ export default function AdminDashboard() {
         },
       });
 
-      // Update list after deletion
       setUsers(users.filter((u) => u.id !== userId));
     } catch (err) {
       alert("Failed to delete user.");
@@ -72,7 +70,7 @@ export default function AdminDashboard() {
         </button>
       </header>
 
-      {/* 📊 Stats Section */}
+      {/* 📊 Stats */}
       <section className="py-10 px-6">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           <StatCard label="Total Users" value={counts.total} icon="👥" />
@@ -82,7 +80,12 @@ export default function AdminDashboard() {
         </div>
       </section>
 
-      {/* 📋 User Table */}
+      {/* ➕ Create Agent */}
+      <section className="px-6">
+        <AdminUserForm onSuccess={fetchUsers} />
+      </section>
+
+      {/* 📋 Users Table */}
       <section className="px-6 pb-12">
         <div className="bg-white rounded-lg shadow p-6 text-gray-800">
           <h2 className="text-xl font-semibold mb-4">📋 Registered Users</h2>
@@ -114,7 +117,6 @@ export default function AdminDashboard() {
                 ))}
               </tbody>
             </table>
-
             {users.length === 0 && (
               <p className="text-center py-4 text-gray-500">No users found.</p>
             )}
@@ -125,7 +127,7 @@ export default function AdminDashboard() {
   );
 }
 
-// 🧾 Card Component
+// 🧾 Stat Card
 function StatCard({ label, value, icon }) {
   return (
     <div className="bg-white text-gray-900 p-4 rounded shadow text-center border">

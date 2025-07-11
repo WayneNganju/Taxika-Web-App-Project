@@ -71,11 +71,18 @@ export default function TaxpayerDashboard() {
         </div>
 
         {taxData && (
-          <div className="bg-white text-gray-900 rounded-lg p-6 shadow">
-            <h2 className="text-xl font-semibold mb-4">📊 Tax Summary</h2>
-            <p>💰 Gross Income: <strong>KES {taxData.gross_income}</strong></p>
-            <p>🧾 Taxable Income: <strong>KES {taxData.taxable_income}</strong></p>
-            <p>💸 Computed PAYE: <strong>KES {taxData.computed_paye}</strong></p>
+          <div className="bg-white text-gray-900 rounded-lg p-6 shadow space-y-2">
+            <h2 className="text-xl font-semibold mb-4">📊 Tax Summary (2025)</h2>
+            <p>💰 <strong>Gross Income:</strong> KES {taxData.gross_income}</p>
+            <p>🧾 <strong>Taxable Income:</strong> KES {taxData.taxable_income}</p>
+            <p>💸 <strong>PAYE Tax:</strong> KES {taxData.computed_paye}</p>
+            <p>🏥 <strong>SHIF:</strong> KES {taxData.shif}</p>
+            <p>🏦 <strong>NSSF:</strong> KES {taxData.nssf}</p>
+            <p>🏠 <strong>Housing Levy:</strong> KES {taxData.housing_levy}</p>
+            <p>🎁 <strong>Personal Relief:</strong> KES {taxData.relief}</p>
+            <p className="font-bold text-green-600">
+              ✅ Net Tax Payable: KES {taxData.net_tax}
+            </p>
           </div>
         )}
 
@@ -90,9 +97,8 @@ export default function TaxpayerDashboard() {
         </div>
       </section>
 
-      {/* Footer / Help */}
       <footer className="text-center text-indigo-100 text-sm pb-6">
-        🇰🇪 Need help? Your data stays secure. This is a free tool for Kenyan taxpayers.
+        🇰🇪 This free tool simplifies tax returns for Kenyan taxpayers.
       </footer>
     </div>
   );

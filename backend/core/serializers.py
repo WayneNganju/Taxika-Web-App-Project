@@ -1,8 +1,6 @@
 from rest_framework import serializers
-from .models import User , P9Form , TaxRecord
+from .models import User, P9Form, TaxRecord, TaxZip, ClientProfile
 from django.contrib.auth.password_validation import validate_password
-from .models import TaxZip
-from .models import ClientProfile
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -11,7 +9,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'password2', 'role')
+        fields = ['username', 'email', 'password', 'password2', 'role']
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
@@ -19,28 +17,33 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        validated_data.pop('password2')
+        validated_data.pop("password2")
         return User.objects.create_user(**validated_data)
+
 
 class P9UploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = P9Form
         fields = ['file']
 
+
 class TaxRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaxRecord
         fields = '__all__'
+
 
 class TaxZipSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaxZip
         fields = '__all__'
 
+
 class ClientTaxRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaxRecord
         fields = ['year', 'gross_income', 'taxable_income', 'computed_paye', 'created_at']
+
 
 class ClientProfileSerializer(serializers.ModelSerializer):
     taxpayer_name = serializers.CharField(source='taxpayer.username', read_only=True)
@@ -55,7 +58,8 @@ class ClientProfileSerializer(serializers.ModelSerializer):
         records = TaxRecord.objects.filter(user=obj.taxpayer)
         return ClientTaxRecordSerializer(records, many=True).data
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "email", "role"]
+        fields = ['id', 'username', 'email', 'role']

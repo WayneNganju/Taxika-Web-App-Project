@@ -9,7 +9,7 @@ export default function RegisterPage() {
     email: "",
     password: "",
     password2: "",
-    role: "taxpayer",
+    role: "taxpayer", // Default to taxpayer
   });
 
   const [error, setError] = useState("");
@@ -103,20 +103,8 @@ export default function RegisterPage() {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">🎭 Role</label>
-            <select
-              name="role"
-              value={form.role}
-              onChange={handleChange}
-              className="mt-1 w-full px-4 py-2 border rounded-md bg-white focus:ring focus:ring-indigo-300"
-              required
-            >
-              <option value="taxpayer">🧍 Taxpayer</option>
-              <option value="agent">🧑‍💼 Tax Agent</option>
-              <option value="admin">🛠️ Admin</option>
-            </select>
-          </div>
+          {/* Only taxpayer role is available here */}
+          <input type="hidden" name="role" value="taxpayer" />
 
           <button
             type="submit"
